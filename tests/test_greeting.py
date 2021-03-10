@@ -1,9 +1,5 @@
 from project_trello.greeting import greeting
 
-def test_greeting_fail():
-    assert greeting("buffy") == "", \
-        'demo of a test failure'
-
 
 def test_greeting_lower():
     assert greeting("buffy") == "Welcome Buffy.", \

@@ -106,16 +106,18 @@ def test_format_text():
    'brightness': 'light',
    'idPlugin': None}}]
     
-    text = """Name: Trello CLI Project
+    text = """Card # 1
+Name: Trello CLI Project
 Url: https://trello.com/c/VTIIqfX7
 Due Date:
 
 Projects
+Card # 2
 Name: Write a rock/paper/scissors game
 Url: https://trello.com/c/ZXxnseRj
 Due Date:2020-09-23T04:07:00.000Z
 Projects
-Jimmy Woo rulez"""
+"""
     assert format_text(raw_data) == text
 
 

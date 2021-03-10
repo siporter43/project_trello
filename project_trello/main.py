@@ -10,14 +10,22 @@ TODO
 [x] Phase 1: Print the open cards from your To Do list.
     [x] get an API key and token
     [x] Find the id of your To Do list.
-    [ ] Get the cards on your To Do list.
+    [x] Get the cards on your To Do list.
         [x] make a successful request to get the cards from your To Do list
-    [ ] Print the card info.
+    [x] Print the card info.
     [x] this file is currently not doing anything. it should do something
     [x] open your saved JSON file and load it in a IPython shell using the File Handling example
         https://github.com/alissa-huskey/python-class/blob/master/pythonclass/lessons/file_handling.py
         then use the data introspection lesson tools to explore the data until you are
         familiar enough wih the data structure that you can write the code
+[ ] Phase 2: Show Card Details.
+    [ ] Use enumerate fncn to print a number next to each card name
+        # something like: for i, card in enumerate(cardlist) and print 
+    [ ] After printing list of card, get input from user
+        [ ] If they enter a number of a listed card, print desc, any checlist items and/or details for the card
+            # question = input(Pick a card number or type Q to quit: )
+                return
+    [ ] Q to exit the program
 
 """
 
@@ -31,7 +39,6 @@ import requests
 from project_trello.private import trello_token, trello_key
 
 # Global Variables
-
 
 
 
@@ -72,6 +79,7 @@ def format_text(raw_data):
     i = 0 
     while i < len(raw_data):
         card = raw_data[i]
+        card_text += f"Card # {i + 1}\n"
         card_text += "Name: "  + card["name"] + "\n"
         card_text += "Url: " + card["shortUrl"] + "\n"
         due_date = card["due"]
@@ -82,13 +90,29 @@ def format_text(raw_data):
         for card_label in labels:
             card_text += (card_label["name"]) + "\n"
         i += 1
-    card_text += "Jimmy Woo rulez"
     return card_text
 
 def main():
     raw_data = card_call()
     text = format_text(raw_data)
     print(text)
+    # question = input("Type the number of card for more details. Type Q to quit program: ")
+    # if question == int,
+
+    # elif question == "q",
+    #     return
+    
+
+def old_main():
+    raw_data = card_call()
+    text = format_text(raw_data)
+    print(text)
 
 # Runner
+# run this program on the command line using:
+#   poetry run trello
 
+# or if you're in a poetry shell just:
+#   poetry
+if __name__ == "__main__":
+    main()
